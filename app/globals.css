@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,900&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  width: 100vw;
+}
+
+.submit-form {
+  text-align: left;
+  min-height: 100vh;
+}
+
+.form-information {
+  margin: auto;
+  padding: 2rem 0;
+  width: 80%;
+}
+
+.form-information h1 {
+  margin: 0rem 1rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 125%;
+}
+
+.form-information h3 {
+  margin: 1rem;
+  font-size: 1.1rem;
+}
+
+.input-container {
+  margin: 1rem 2rem;
+  font-size: 1.2rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: start;
+  align-items: start;
+}
+
+.input-container label , .input-container p {
+  margin: 0;
+  padding: 0;
+}
+
+.input-container .question {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.input-container textarea {
+  width: 100%;
+  font-weight: 400;
+}
+
+.input-container label {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.25rem 0.75rem;
+}
+
+.input-container input {
+  
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.input-container input[type = 'text'],
+.input-container input[type = 'number'],
+.input-container input[type = 'tel']{
+  width: 100%;
+  outline: 1px solid #e2e8f0;
+}
+
+.input-container input[type = 'radio'],
+.input-container input[type = 'checkbox']
+{
+  outline: none;
+  scale : 1.2;
+}
+
+
+.hero-img {
+  animation: fadeInImg 1s ease-in-out forwards; 
+}
+
+@keyframes fadeInImg {
+  from {
+      opacity: 0;
+      transform: translateX(50%);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0%);
+  }
+}
+
+.hero-title {
+  animation: fadeInTitle 1s ease-in-out forwards; 
+}
+
+@keyframes fadeInTitle {
+  from {
+      opacity: 0;
+      transform: translateX(-50%);
+  }
+  to {
+      opacity: 1;
+      transform: translateX(0%);
+  }
+}
+
+.radio-label{
+  outline: 1px solid #e2e8f0;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+}
+
+.hero-header {
+  animation: header-fadein 1s ease-in forwards;
+}
+
+@keyframes header-fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  
+  }
+}
+
+.home-links {
+  display: block;
+  outline: 1px solid #d1d5db;
+  width: 30%;
+  height: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color : #111827;
+  border-radius: 1rem;
+  transition: all 100ms;
+}
+
+
+@media (max-width : 768px) {
+  .home-links {
+    width: 80%;
+    height: 25%;
+    font-size: 2rem;
+  }
+}
+
+.forms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
