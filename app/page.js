@@ -1,13 +1,9 @@
 'use client'
 import Header from '@/components/header/Header'
-import useLogin from '@/hooks/useLogin'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const Home = () => {
-  const {login} = useLogin()
-  const router = useRouter()
 
   return (
     <>
