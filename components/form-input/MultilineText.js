@@ -13,7 +13,7 @@ const MultilineText = ({questionProp , requiredId}) => {
           id={id}
           required = {questionProp.required}
           className='
-            outline outline-1 outline-slate-200 shadow-sm w-[60vw] h-[5rem] rounded-md p-4 py-2
+            outline outline-1 text-[1rem] outline-slate-200 shadow-sm w-[60vw] h-[5rem] rounded-md p-4 py-2
           '
           onChange={e => {
             dispatch({

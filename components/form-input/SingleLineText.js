@@ -16,7 +16,7 @@ const SingleLineText = ({questionProp , requiredId}) => {
           }
         })
         setAns(e.target.value)
-      }}  required = {questionProp.required} className='bg-white outline outline-1 shadow-sm' type='text' id = {id} />
+      }}  required = {questionProp.required} className='bg-white outline outline-1 shadow-sm text-[1rem]' type='text' id = {id} />
       {(requiredId === id && !ans) && <p className='text-red-400'>This is field is required!</p>}
     </div>
   )
