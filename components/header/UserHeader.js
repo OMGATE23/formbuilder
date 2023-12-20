@@ -12,9 +12,9 @@ const UserHeader = () => {
           <div className=''>
             <p className='text-2xl font-bold'>Hi, {user?.displayName.split(' ')[0]}!</p>
           </div>
-          <button className='p-2 rounded-sm outline outline-1' onClick={() => {
-            logout()
-            redirect('')
+          <button className='p-2 rounded-sm outline outline-1' onClick={async() => {
+            await logout()
+            redirect('/')
           }}>
             Logout
           </button>
