@@ -1,8 +1,13 @@
+'use client'
 import Header from '@/components/header/Header'
+import useLogin from '@/hooks/useLogin'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const Home = () => {
+  const {login} = useLogin()
+  const router = useRouter()
 
   return (
     <>
@@ -14,12 +19,13 @@ const Home = () => {
           <h2 className='text-2xl w-[80%] text-gray-500'>Swiftly sculpt your ideas with our effortless form creator.</h2>
           
           <Link
-            className='inline-block outline outline-1 text-xl py-2 px-4 text-white bg-black rounded-md hover:cursor-pointer transition-all hover:bg-slate-700' href='/'
+            className='inline-block outline outline-1 text-xl py-2 px-4 text-white bg-black rounded-md hover:cursor-pointer transition-all hover:bg-slate-700' href='/home'
           >
             <div className='flex items-center gap-4 '>
             Join Us <img className='w-6 text-white' color='#fff' src='right-arrow.svg' />
             </div>
           </Link>
+          
         </div>
         <img className='hero-img w-[75%] md:w-[40%]' src='mockup.png' />
       </div>
