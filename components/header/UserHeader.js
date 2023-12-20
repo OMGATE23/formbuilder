@@ -1,10 +1,12 @@
 import { useAuthContext } from '@/hooks/useAuthContext'
 import { useLogout } from '@/hooks/useLogout'
 import { redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import React from 'react'
 
 const UserHeader = () => {
     const {user} = useAuthContext()
+    const router = useRouter()
     const {logout} = useLogout()
   return (
     <div>
@@ -13,8 +15,10 @@ const UserHeader = () => {
             <p className='text-2xl font-bold'>Hi, {user?.displayName.split(' ')[0]}!</p>
           </div>
           <button className='p-2 rounded-sm outline outline-1' onClick={async() => {
-            await logout()
-            redirect('/')
+            logout()
+            router.push('/')
+            
+            
           }}>
             Logout
           </button>

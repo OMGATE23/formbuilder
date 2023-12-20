@@ -11,11 +11,10 @@ const Home = () => {
     const {login} = useLogin()
     console.log(user)
     useEffect(() => {
-        (async() => {
-            if(!user){
-                await login()
-            }
-        })()
+        if(!user){
+            login()
+            console.log('NO user detected at home')
+        }
     } , [])
 
   return (
@@ -31,6 +30,15 @@ const Home = () => {
                 </Link>
             </div>
         </>}
+        {
+            !user && (
+                <>
+                    <p>Oops! No user detected.</p>
+                    <p>Don't worry try loging back in</p>
+                    <button onClick={login}>Login</button>
+                </>
+            )
+        }
     </div>
   )
 }
