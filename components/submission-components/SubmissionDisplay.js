@@ -1,6 +1,20 @@
-import React from "react";
+import { ArrowDownIcon, ArrowDownOnSquareIcon, ShareIcon } from "@heroicons/react/24/outline";
+import React, { useState } from "react";
 
-export default function SubmissionDisplay({ submissions , name }) {
+export default function SubmissionDisplay({formId, submissions , name }) {
+  const [isCopied, setIsCopied] = useState(false);
+
+  const copyToClipboard = async () => {
+    try {
+      await navigator.clipboard.writeText(`https://formifypro.vercel.app/form/${formId}`);
+      setIsCopied(true);
+      setTimeout(() => {
+        setIsCopied(false)
+      } , 5000)
+    } catch (err) {
+      console.error('Failed to copy to clipboard', err);
+    }
+  };
   const questions =
     submissions.length > 0
       ? submissions[0].submission.map((item) => item.question)
@@ -30,14 +44,21 @@ export default function SubmissionDisplay({ submissions , name }) {
   };
   return (
     <div>
-      <h2>{name}</h2>
+      <h2 className="text-center my-8 text-3xl font-bold text-gray-700">{name}</h2>
       <div className="flex flex-col items-center gap-4">
-        <button
-          className="outline outline-1 px-4 py-2 rounded-md cursor-pointer"
-          onClick={downloadCSV}
-        >
-          Download CSV
-        </button>
+        <div className="buttons flex gap-4">
+          <button
+            className="flex items-center gap-2 outline outline-1 px-4 py-2 rounded-md cursor-pointer"
+            onClick={downloadCSV}
+          >
+            Download CSV <ArrowDownOnSquareIcon width={24} />
+          </button>
+          <button 
+          onClick={copyToClipboard}
+          className={`flex items-center gap-2 outline outline-1 py-2 px-4 rounded-md ${isCopied ? "text-green-700" : "text-black"}`}>
+            { isCopied ? "Copied" : 'Copy Form Link'} <ShareIcon width={24}/>
+          </button>
+        </div>
         <div className="w-[80%] mx-auto overflow-scroll">
           {questions && (
             <table className="mx-auto rounded-md shadow-md">
