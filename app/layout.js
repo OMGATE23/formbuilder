@@ -6,6 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata = {
   title: 'FormifyPro',
   description: 'FormifyPro: The user-friendly Next.js form builder. Create dynamic forms anonymously and effortlessly. Customize, share, and collect responses for free. Start crafting your interactive forms now!',
+  image : '/cover-image.png'
 };
 
 
