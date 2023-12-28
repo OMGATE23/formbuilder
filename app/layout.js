@@ -12,6 +12,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html  style={{scrollBehavior : 'smooth' , width : '100vw'}} lang="en">
+      <link rel="icon" href="/favicon.ico" sizes="any" />
       <body>
         <Providers>{children}</Providers>
         </body>
