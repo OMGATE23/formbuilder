@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const FormShareModal = ({ formStatus, show }) => {
   const [textCopied, setTextCopied] = useState(false);
   function textCopyHandler() {
-    navigator.clipboard.writeText(`https://formbuilder-phi.vercel.app/form/${formStatus.id}`);
+    navigator.clipboard.writeText(`https://formifypro.vercel.app/form/${formStatus.id}`);
     setTextCopied(true);
   }
   return (
@@ -16,7 +16,7 @@ const FormShareModal = ({ formStatus, show }) => {
             <div className="flex justify-center flex-col items-center gap-4">
               Form link is available
               <div className="outline outline-1 p-2 rounded-md flex items-center gap-4 cursor-text ">
-                https://formbuilder-phi.vercel.app/form/{formStatus.id}
+                https://formifypro.vercel.app/form/{formStatus.id}
                 <ClipboardIcon
                   className="w-6 cursor-pointer"
                   onClick={textCopyHandler}
