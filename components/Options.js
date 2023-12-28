@@ -5,7 +5,7 @@ const Options = ({ option, question , type}) => {
   const {dispatch} = useContext(QuestionsContext)
   return (
     <div className="flex items-center gap-4">
-      <label className="flex gap-4 rounded-sm shadow-md py-2 px-4">
+      <label className="flex gap-4 rounded-sm shadow-sm outline outline-1 outline-gray-200 py-2 px-4">
         <input disabled type = {type} name = {question} className=" scale-125"/>
         <input
           autoFocus

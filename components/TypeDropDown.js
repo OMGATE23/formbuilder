@@ -7,7 +7,6 @@ const TypeDropDown = ({question}) => {
     const {dispatch} = useContext(QuestionsContext)
     const typeList = [
         { value : 'radio' , title: 'Multiple choice'},
-        {value : 'checkbox', title : 'Multiple answer'},
         {value : 'text', title : 'Single Line Answer'},
         {value : 'textarea', title : 'Multi Line Answer'},
         {value: 'date', title : 'Date'},
@@ -24,10 +23,10 @@ const TypeDropDown = ({question}) => {
          phone: 'Phone',
 }
   return (
-    <div className='text-[1rem] w-[80%] bg-gray-50 z-40 max-w-[300px] relative '>
+    <div className='text-[1rem] w-[80%] outline outline-1 outline-gray-200 rounded-sm z-40 max-w-[300px] relative '>
         <div onClick={() => {
             setShow(prev => !prev)
-        }} className='flex justify-between items-center relative z-10 gap-2 cursor-pointer px-4 py-2 rounded-md shadow-md'>
+        }} className='flex justify-between items-center relative z-10 gap-2 cursor-pointer px-2 py-1 rounded-md shadow-sm'>
             <p >{types[question.type]} </p>
             <ChevronDownIcon 
                 className={`h-6 ${show ? 'rotate-180' : 'rotate-0'} transition-all duration-200 `}
@@ -37,7 +36,7 @@ const TypeDropDown = ({question}) => {
             {
                 typeList.map(({value , title}) =>(
                     <li 
-                        className={`${question.type === value ? 'bg-gray-200' : ''} flex items-center gap-2 hover:bg-gray-200 rounded-xl py-1 px-2 cursor-pointer` }
+                        className={`${question.type === value ? 'bg-gray-200' : ''} flex items-center gap-2 hover:bg-gray-200 rounded-sm py-1 px-2 cursor-pointer` }
                         key ={value} 
                         value = {value}
                         onClick={() => {
