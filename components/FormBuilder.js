@@ -7,6 +7,7 @@ import CreatedForms from './CreatedForms'
 import { useAuthContext } from '@/hooks/useAuthContext'
 import FormDetails from './FormDetails'
 import NameModal from './form-input/NameModal'
+import { PlusIcon } from '@heroicons/react/24/outline'
 
 const FormBuilder = () => {
     const {state , dispatch} = useContext(QuestionsContext)
@@ -39,9 +40,9 @@ const FormBuilder = () => {
                     type : 'ADD_QUESTION'
                 })
             }}
-            className='mx-auto text-gray-800 block h-[25vh] w-[80%] outline-dashed outline-2 rounded-xl text-3xl '
+            className='mx-auto flex gap-2 rounded-md items-center text-gray-800 py-2 px-4 min-w-[200px] outline outline-1 text-2xl '
          >
-            Add a Question
+           <PlusIcon width={24} /> Add a Question
         </button>
 
 
