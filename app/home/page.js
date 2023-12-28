@@ -34,7 +34,7 @@ const Home = () => {
             !user && (
                 <>
                     <p>Oops! No user detected.</p>
-                    <p>Don't worry try loging back in</p>
+                    <p>{`Don't worry try loging back in`}</p>
                     <button onClick={login}>Login</button>
                 </>
             )
