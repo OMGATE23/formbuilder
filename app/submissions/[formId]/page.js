@@ -11,7 +11,7 @@ const Submission = ({ params }) => {
   const { user } = useAuthContext();
   const [submissions, setSubmissions] = useState();
   const [isValidUser, setIsValidUser] = useState();
-  console.log(isValidUser)
+  console.log(isValidUser);
   const { getAllSubmissions, checkCreatorOfForm } = useFirestore();
   useEffect(() => {
     getAllSubmissions(params.formId, setSubmissions);
@@ -23,25 +23,22 @@ const Submission = ({ params }) => {
     <div className="min-w-[100%]">
       {user && (
         <>
-          <>
-            <UserHeader />
-            {submissions && (
-              <>
-                {isValidUser && (
-                  <>
-                    {isValidUser.valid ? (
-                      <SubmissionDisplay submissions={submissions} name = {isValidUser.name} />
-                    ) : (
-                      <p>
-                        Form does not exist or you are not the creator of the
-                        form
-                      </p>
-                    )}
-                  </>
-                )}
-              </>
-            )}
-          </>
+          <UserHeader />
+          {submissions && isValidUser && (
+            <>
+              {isValidUser.valid ? (
+                <SubmissionDisplay
+                  formId={params.formId}
+                  submissions={submissions}
+                  name={isValidUser.name}
+                />
+              ) : (
+                <p>
+                  Form does not exist or you are not the creator of the form
+                </p>
+              )}
+            </>
+          )}
         </>
       )}
       {!user && (
