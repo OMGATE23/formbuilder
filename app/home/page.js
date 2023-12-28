@@ -32,11 +32,13 @@ const Home = () => {
         </>}
         {
             !user && (
-                <>
+                <div className='w-[100vw] h-full flex items-center justify-center'>
+                    <div className='flex flex-col gap-4 text-center'>
                     <p>Oops! No user detected.</p>
                     <p>{`Don't worry try loging back in`}</p>
-                    <button onClick={login}>Login</button>
-                </>
+                    <button className='outline outline-1 py-2 px-4 rounded-md' onClick={login}>Login</button>
+                    </div>
+                </div>
             )
         }
     </div>
