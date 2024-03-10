@@ -1,36 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FormifyPro
+### Introducing Formify: Simplify Your Form Building 🙏🏻
 
-## Getting Started
+Welcome to Formify – your go-to platform for creating customized forms effortlessly. With intuitive design tools and versatile templates, crafting the perfect form is a breeze. Share your forms seamlessly and gather responses effortlessly. Experience streamlined form building with Formify today!
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+<img width="1352" alt="Screenshot 2024-03-10 at 10 16 13 PM" src="https://github.com/OMGATE23/formbuilder/assets/90276220/185cd7bd-27dd-4fde-8b32-f60efbeb378c">
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Create Forms 🖊️
+Design custom forms effortlessly with options for radio buttons, checkboxes, multiple choice, single-line, and multiline text fields. Set fields as required or optional with a click. Start simplifying your form creation process today with Formify!
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<img width="1344" alt="Screenshot 2024-03-10 at 10 27 02 PM" src="https://github.com/OMGATE23/formbuilder/assets/90276220/7e863df6-fe63-40a8-bab1-726ba8dfccf6">
 
-## Learn More
+### Fill forms 📝
+Welcome to Formify – where form filling is smooth, minimalistic, and incredibly convenient. Our user-friendly interface ensures a seamless experience, making data input a breeze. Experience the convenience of Formify today!
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<img width="1351" alt="Screenshot 2024-03-10 at 10 31 44 PM" src="https://github.com/OMGATE23/formbuilder/assets/90276220/8bca76e5-5c0f-4a75-9952-aa0685376904">
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Check all submissions 🔎
+Form submissions made effortless with Formify's intuitive table display and CSV import feature. Experience the ease of managing submissions today!
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<img width="806" alt="Screenshot 2024-03-10 at 10 32 44 PM" src="https://github.com/OMGATE23/formbuilder/assets/90276220/66b47626-bd80-4639-bf86-1c9dd92a7c60">
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Thats all folks👋🏻 Please do let me know if you like the app and if you have any feedback. See you next time!
