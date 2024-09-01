@@ -4,8 +4,7 @@ import React, { useContext } from "react";
 const FormDetails = () => {
   const { state, dispatch } = useContext(QuestionsContext);
   return (
-    <div className="shadow-md my-4 flex flex-col items-start w-[80vw] md:w-[60vw] gap-4 p-6 rounded-md mx-auto ">
-      
+    <div className="outline outline-1 outline-neutral-200 shadow my-4 flex flex-col items-start gap-4 p-6 rounded-md">
       <input
         onChange={(e) =>
           dispatch({
@@ -15,7 +14,7 @@ const FormDetails = () => {
         }
         value={state.name}
         placeholder="Enter name of Form"
-        className="name w-[100%] block rounded-sm py-2 px-4 text-4xl font-bold"
+        className="name w-[100%] placeholder:font-[300] block rounded-sm py-2 px-4 text-lg font-[500]"
       />
       <textarea
         onChange={(e) =>
@@ -25,7 +24,7 @@ const FormDetails = () => {
           })
         }
         value={state.description}
-        className="text-xl py-2 px-4 w-full rounded-sm"
+        className="text-md font-[300] py-2 px-4 w-full rounded-sm outline outline-neutral-200 outline-1 shadow-sm"
         placeholder="Enter Description"
       />
     </div>

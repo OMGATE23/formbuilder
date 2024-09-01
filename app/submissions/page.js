@@ -3,11 +3,17 @@ import CreatedForms from '@/components/CreatedForms'
 import Header from '@/components/header/Header'
 import UserHeader from '@/components/header/UserHeader'
 import { useAuthContext } from '@/hooks/useAuthContext'
-import { redirect } from 'next/navigation'
+import use, { useRouter } from 'next/navigation'
 import React, { useEffect } from 'react'
 
 const SubmissionsDashboard = () => {
-    const {user} = useAuthContext()
+  const {user, authIsReady} = useAuthContext()
+  const router = useRouter()
+  if(!authIsReady){
+    return <></>
+  }
+
+  
   return (
     <div>
         {user && (
@@ -18,11 +24,7 @@ const SubmissionsDashboard = () => {
         )}
         {
           !user && (
-            <>
-              <Header/>
-              <p>Sign in borther this aint you</p>
-            </>
-            
+            router.push('/')
           )
         }
     </div>

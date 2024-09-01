@@ -5,11 +5,10 @@ const Options = ({ option, question , type}) => {
   const {dispatch} = useContext(QuestionsContext)
   return (
     <div className="flex items-center gap-4">
-      <label className="flex gap-4 rounded-sm shadow-sm outline outline-1 outline-gray-200 py-2 px-4">
+      <label className="flex gap-4 rounded-md shadow-sm outline outline-1 outline-gray-200 py-1 px-3">
         <input disabled type = {type} name = {question} className=" scale-125"/>
         <input
           autoFocus
-          contentEditable
           onInput={(e) => {
             dispatch({
               type: "UPDATE_OPTION",
@@ -21,7 +20,8 @@ const Options = ({ option, question , type}) => {
             });
           }}
           value = {option.value}
-          className="block min-w-[200px] px-2"
+          placeholder="Option name"
+          className="block min-w-[200px] px-2 border-b border-white focus:border-b focus:border-neutral-200 outline-none"
         />
       </label>
       <Delete

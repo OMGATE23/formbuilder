@@ -12,7 +12,7 @@ const SignIn = () => {
 
     useEffect(() => {
         if(user){
-          redirect('/home')
+          redirect('/submissions')
         } else {
           login()
         }

@@ -1,17 +1,50 @@
 import { QuestionsContext } from "@/context/QuestionContext";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import TypeDropDown from "./TypeDropDown";
 import Options from "./Options";
-import Delete from "./misc/Delete";
 import { TrashIcon } from "@heroicons/react/24/outline";
 
-const QuestionForm = ({ question, index }) => {
+const QuestionForm = ({ question, onVisible, currentQuesId }) => {
   const { state, dispatch } = useContext(QuestionsContext);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        console.log(entries.filter(entry => entry.isIntersecting).map(entry => entry.target.id))
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            onVisible(entry.target.id);
+            console.log(entry.target.id)
+          }
+        });
+      },
+      { 
+        threshold: 1,
+        rootMargin: '40px 0px 40px 0px'
+      } 
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, [question.id, onVisible]);
   return (
-    <div className="w-[80%] md:w-[60%] flex flex-col items-start gap-4 my-12 text-lg p-8 rounded-md shadow-md">
-      <div className="w-[100%]">
+    <div
+      ref={ref} 
+      id={question.id} 
+      className=" flex flex-col items-start gap-4 my-4 p-8 rounded-md shadow outline outline-1 outline-neutral-200 font-[300]"
+    >
+      {question.id}
+      <div className="w-[100%] flex flex-col gap-2">
         <TypeDropDown question={question} />
-        <div className="flex gap-4 items-center justify-between w-[100%]">
+        <div className="w-[100%]">
           <label className="flex gap-4 w-full py-2">
             <input
               onChange={(e) => {
@@ -24,12 +57,13 @@ const QuestionForm = ({ question, index }) => {
                 });
               }}
               value={question.question}
-              className="focus:border-none inline-block w-full p-2 my-2 rounded-md outline outline-1 outline-gray-400"
+              placeholder="Here goes the question..."
+              className="text-base focus:border-none inline-block w-full px-4 py-1.5 my-2 rounded-md outline outline-1 outline-neutral-200"
             />
           </label>
         </div>
 
-        <div className="flex mt-4 flex-col gap-4">
+        <div className="flex flex-col gap-4">
           {question.type === "checkbox" || question.type === "radio" ? (
             <div className="flex flex-col gap-4">
               {question.options.map((option, index) => (
@@ -42,7 +76,7 @@ const QuestionForm = ({ question, index }) => {
                 />
               ))}
               <button
-                className="inline-block w-[100%] rounded-md py-2 px-4 outline outline-1 outline-gray-200 shadow-sm max-w-[300px] cursor-pointer"
+                className="inline-block w-[80%] rounded-md py-1 px-3 outline outline-1 outline-gray-200 shadow-sm max-w-[260px] cursor-pointer"
                 onClick={() => {
                   dispatch({
                     type: "ADD_OPTION",
@@ -62,9 +96,10 @@ const QuestionForm = ({ question, index }) => {
                 />
           ) : (
             <input
-              className="outline outline-1 outline-gray-100 w-full rounded-md py-2 px-4 shadow-sm"
+              className="outline outline-1 outline-gray-100 w-full rounded-md py-2 px-4 shadow-sm disabled:bg-neutral-50"
               type={question.type}
-              placeholder="Answer here..."
+              placeholder="And here will come the answer here..."
+              disabled
             />
           )}
         </div>
@@ -96,10 +131,10 @@ const QuestionForm = ({ question, index }) => {
           });
         }}
         disabled={state.length <= 1}
-        className="flex items-center gap-4 disabled:bg-gray-300 disabled:cursor-not-allowed outline outline-1 outline-gray-200 transition-all duration-150 hover:outline-red-400 rounded-md hover:bg-red-200 p-2 "
+        className="text-sm flex items-center gap-2 disabled:bg-gray-300 disabled:cursor-not-allowed outline outline-1 outline-gray-200 transition-all duration-150 hover:outline-red-300 rounded-md hover:bg-red-200 py-1.5 px-3"
       >
         Delete Question
-        <TrashIcon width={24}/>
+        <TrashIcon width={18}/>
       </button>
     </div>
   );
