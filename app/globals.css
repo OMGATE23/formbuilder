@@ -1,12 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,400;0,700;0,800;0,900;1,400;1,700;1,900&family=Rubik+Mono+One&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-body {
-  font-family: 'Noto Sans', sans-serif;
-  width: 100vw;
-}
 
 .submit-form {
   text-align: left;
@@ -44,7 +38,8 @@ body {
   align-items: start;
 }
 
-.input-container label , .input-container p {
+.input-container label,
+.input-container p {
   margin: 0;
   padding: 0;
 }
@@ -67,57 +62,58 @@ body {
 }
 
 .input-container input {
-  
+
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
 }
 
-.input-container input[type = 'text'],
-.input-container input[type = 'number'],
-.input-container input[type = 'tel']{
+.input-container input[type='text'],
+.input-container input[type='number'],
+.input-container input[type='tel'] {
   width: 100%;
   outline: 1px solid #e2e8f0;
 }
 
-.input-container input[type = 'radio'],
-.input-container input[type = 'checkbox']
-{
+.input-container input[type='radio'],
+.input-container input[type='checkbox'] {
   outline: none;
-  scale : 1.2;
+  scale: 1.2;
 }
 
 
 .hero-img {
-  animation: fadeInImg 1s ease-in-out forwards; 
+  animation: fadeInImg 1s ease-in-out forwards;
 }
 
 @keyframes fadeInImg {
   from {
-      opacity: 0;
-      transform: translateX(50%);
+    opacity: 0;
+    transform: translateX(50%);
   }
+
   to {
-      opacity: 1;
-      transform: translateX(0%);
+    opacity: 1;
+    transform: translateX(0%);
   }
 }
 
 .hero-title {
-  animation: fadeInTitle 1s ease-in-out forwards; 
+  animation: fadeInTitle 1s ease-in-out forwards;
 }
 
 @keyframes fadeInTitle {
   from {
-      opacity: 0;
-      transform: translateX(-50%);
+    opacity: 0;
+    transform: translateX(-50%);
   }
+
   to {
-      opacity: 1;
-      transform: translateX(0%);
+    opacity: 1;
+    transform: translateX(0%);
   }
 }
 
-.radio-label{
+.radio-label {
   outline: 1px solid #e2e8f0;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
@@ -131,9 +127,10 @@ body {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
-  
+
   }
 }
 
@@ -147,7 +144,7 @@ body {
   align-items: center;
   font-size: 2.5rem;
   font-weight: bold;
-  color : #111827;
+  color: #111827;
   border-radius: 1rem;
   transition: all 100ms;
 }
@@ -165,4 +162,3 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
-

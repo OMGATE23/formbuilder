@@ -23,20 +23,20 @@ const TypeDropDown = ({question}) => {
          phone: 'Phone',
 }
   return (
-    <div className='text-[1rem] w-[80%] outline outline-1 outline-gray-200 rounded-sm z-40 max-w-[300px] relative '>
+    <div className='text-sm w-fit min-w-[180px] px-1 outline outline-1 outline-gray-200 rounded-sm z-40 relative '>
         <div onClick={() => {
             setShow(prev => !prev)
-        }} className='flex justify-between items-center relative z-10 gap-2 cursor-pointer px-2 py-1 rounded-md shadow-sm'>
-            <p >{types[question.type]} </p>
+        }} className='flex justify-between items-center relative z-10 gap-2 cursor-pointer px-1 py-1 rounded-md shadow-sm w-full'>
+            <p>{types[question.type]} </p>
             <ChevronDownIcon 
-                className={`h-6 ${show ? 'rotate-180' : 'rotate-0'} transition-all duration-200 `}
+                className={`h-4 ${show ? 'rotate-180' : 'rotate-0'} transition-all duration-200 `}
             /> 
         </div>
-        <ul className={`transition-all duration-200 absolute w-full bg-white ${show ? ' translate-y-[0%] opacity-100' : 'translate-y-[-25%] absolute opacity-0  pointer-events-none'}`}>
+        <ul className={`left-0 transition-all duration-200 absolute w-full bg-white ${show ? 'h-full opacity-100' : 'h-0 absolute opacity-0 pointer-events-none'}`}>
             {
                 typeList.map(({value , title}) =>(
                     <li 
-                        className={`${question.type === value ? 'bg-gray-200' : ''} flex items-center gap-2 hover:bg-gray-200 rounded-sm py-1 px-2 cursor-pointer` }
+                        className={`${question.type === value ? 'bg-gray-200' : 'bg-white'} flex items-center gap-2 hover:bg-gray-200 rounded-sm py-1 px-2 cursor-pointer` }
                         key ={value} 
                         value = {value}
                         onClick={() => {
@@ -47,9 +47,10 @@ const TypeDropDown = ({question}) => {
                                     type : value
                                 }
                             })
+                          setShow(false)
                         }}
                     >
-                        {question.type === value && <CheckIcon className='h-4'/>}
+                        {question.type === value ? <CheckIcon className='h-4'/> : <div className='w-4' />}
                         {title}
                     </li>
                 ))

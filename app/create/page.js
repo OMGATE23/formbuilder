@@ -4,20 +4,23 @@ import UserHeader from '@/components/header/UserHeader'
 import { useAuthContext } from '@/hooks/useAuthContext'
 import useLogin from '@/hooks/useLogin'
 import { useLogout } from '@/hooks/useLogout'
-import { redirect } from 'next/navigation'
 import { useEffect } from 'react'
 
 export default function Home() {
-  const {user} = useAuthContext()
-  const {logout} = useLogout()
+  const context = useAuthContext()
   const {login} = useLogin()
+  console.log(context)
   useEffect(() => {
-    if(!user){
+    if(context.authIsReady && !context.user){
       login()
     }
-  } , [user])
+  } , [context])
+
+  if(!context.authIsReady){
+    return <></>
+  }
   return (
-      <div className='max-w-[100vw]'>
+      <div className='max-w-[100vw] bg-white rounded-md outline outline-1 outline-neutral-100 shadow-sm pb-8'>
         <UserHeader/>
         <FormBuilder/>
       </div>
